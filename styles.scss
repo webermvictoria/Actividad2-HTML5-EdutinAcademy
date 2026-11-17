@@ -1,0 +1,566 @@
+@use "sass:color";
+
+$color-deep-teal: #146466;
+$color-turquoise: #5aaba9;
+$color-cream: #e2e2c4;
+$color-accent: #c92f1c;
+$color-white: #ffffff;
+$font-body: "DM Sans", Arial, sans-serif;
+$font-display: "Playfair Display", Georgia, serif;
+$radius: 1.5rem;
+
+%display-type {
+  color: $color-deep-teal;
+  font-family: $font-display;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+
+body {
+  background-color: $color-cream;
+  color: $color-deep-teal;
+  font-family: $font-body;
+}
+
+.site-header {
+  background-color: $color-white;
+  border-bottom: 2px solid $color-deep-teal;
+
+  .site-navbar {
+    padding-block: 0.9rem;
+  }
+
+  .navbar-brand {
+    color: $color-deep-teal;
+    font-family: $font-display;
+    font-size: 1.7rem;
+    font-weight: 600;
+    letter-spacing: -0.06em;
+
+    span {
+      color: $color-accent;
+      font-style: italic;
+    }
+
+    &:hover,
+    &:focus {
+      color: $color-deep-teal;
+    }
+  }
+
+  .navbar-toggler {
+    border: 0;
+    border-radius: 0;
+    padding: 0.65rem;
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba($color-turquoise, 0.45);
+    }
+  }
+
+  .menu-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    width: 1.6rem;
+
+    span {
+      background-color: $color-deep-teal;
+      height: 2px;
+      width: 1.4rem;
+    }
+  }
+
+  .nav-link {
+    color: $color-deep-teal;
+    font-size: 0.83rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 0.6rem 0.9rem !important;
+    text-transform: uppercase;
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: $color-accent;
+    }
+  }
+}
+
+.drawer {
+  background-color: $color-white;
+  border: 0;
+  color: $color-deep-teal;
+  max-width: 19rem;
+  padding: 1.5rem;
+
+  &::backdrop {
+    background-color: rgba($color-deep-teal, 0.35);
+  }
+}
+
+.drawer-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.drawer-title {
+  @extend %display-type;
+  font-size: 1.7rem;
+  margin: 0;
+}
+
+.site-menu {
+  margin-left: auto;
+}
+
+.jumbotron {
+  background-color: $color-white;
+  padding-block: clamp(5rem, 12vw, 9rem);
+
+  h1 {
+    @extend %display-type;
+    font-family: $font-body;
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    font-weight: 700;
+    line-height: 0.97;
+    margin-bottom: 1.5rem;
+
+    em {
+      color: $color-accent;
+      font-family: $font-display;
+      font-weight: 500;
+    }
+  }
+}
+
+.eyebrow,
+.slide-category {
+  color: $color-accent;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.jumbotron-text {
+  font-family: $font-display;
+  font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+  line-height: 1.35;
+  margin-inline: auto;
+  max-width: 44rem;
+}
+
+.jumbotron-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+.btn {
+  border-radius: 0;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.8rem 1.3rem;
+}
+
+.btn-primary {
+  background-color: $color-deep-teal;
+  border-color: $color-deep-teal;
+  color: $color-white;
+
+  &:hover,
+  &:focus {
+    background-color: color.adjust($color-deep-teal, $lightness: -6%);
+    border-color: color.adjust($color-deep-teal, $lightness: -6%);
+  }
+}
+
+.btn-accent {
+  background-color: $color-accent;
+  border-color: transparent;
+  border-radius: 0.45rem;
+  color: $color-white;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+
+  &:hover,
+  &:focus {
+    background-color: color.adjust($color-accent, $lightness: -6%);
+    border-color: color.adjust($color-accent, $lightness: -6%);
+    color: $color-white;
+    transform: translateY(-0.15rem);
+  }
+}
+
+.btn-cta {
+  padding: 0.9rem 1.6rem;
+}
+
+.text-link {
+  color: $color-deep-teal;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  span {
+    color: $color-accent;
+    font-size: 1.2em;
+    margin-left: 0.25rem;
+  }
+
+  &:hover,
+  &:focus {
+    color: $color-accent;
+  }
+}
+
+.courses-section {
+  padding-block: clamp(4rem, 8vw, 7rem);
+}
+
+.section-heading {
+  align-items: end;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+
+  h2 {
+    @extend %display-type;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    margin-bottom: 0;
+  }
+}
+
+.carousel {
+  --bs-carousel-control-icon-width: 1.15rem;
+}
+
+.carousel-inner {
+  border-radius: $radius;
+}
+
+.course-slide {
+  align-items: center;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(8rem, 0.75fr);
+  min-height: 25rem;
+  overflow: hidden;
+  padding: clamp(2rem, 6vw, 5rem);
+  padding-bottom: 7.5rem;
+  position: relative;
+
+  h3 {
+    font-family: $font-display;
+    font-size: clamp(2.2rem, 4.5vw, 4rem);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin-bottom: 1.2rem;
+    max-width: 34rem;
+  }
+
+  p:not(.slide-category) {
+    font-size: 1.05rem;
+    line-height: 1.55;
+    margin-bottom: 0;
+    max-width: 32rem;
+  }
+}
+
+.course-slide-health {
+  background-color: $color-turquoise;
+  color: $color-deep-teal;
+}
+
+.course-slide-tech {
+  background-color: $color-deep-teal;
+  color: $color-cream;
+
+  .slide-category {
+    color: $color-cream;
+  }
+}
+
+.course-slide-business {
+  background-color: $color-white;
+  color: $color-deep-teal;
+}
+
+.slide-number {
+  color: rgba($color-white, 0.45);
+  font-family: $font-display;
+  font-size: clamp(6rem, 17vw, 13rem);
+  font-style: italic;
+  justify-self: end;
+  letter-spacing: -0.12em;
+  line-height: 0.8;
+  user-select: none;
+}
+
+.course-slide-business .slide-number {
+  color: rgba($color-turquoise, 0.5);
+}
+
+.carousel-overlay-controls {
+  align-items: center;
+  background-color: $color-white;
+  bottom: 1.25rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 2.8rem 1fr 2.8rem;
+  left: 1.25rem;
+  position: absolute;
+  padding: 0.4rem;
+  right: 1.25rem;
+  z-index: 2;
+}
+
+.carousel-control-button {
+  align-items: center;
+  background-color: $color-cream;
+  border: 0;
+  color: $color-deep-teal;
+  display: flex;
+  height: 2.8rem;
+  justify-content: center;
+  padding: 0;
+  width: 2.8rem;
+
+  &:hover,
+  &:focus {
+    background-color: $color-accent;
+    color: $color-white;
+    outline: none;
+  }
+}
+
+.carousel-indicators {
+  align-items: center;
+  display: flex;
+  gap: 0.45rem;
+  justify-content: center;
+  margin: 0;
+  position: static;
+
+  [data-bs-target] {
+    background-color: $color-white;
+    border: 0;
+    height: 0.45rem;
+    margin: 0;
+    opacity: 0.65;
+    width: 1.8rem;
+
+    &.active {
+      background-color: $color-accent;
+      opacity: 1;
+    }
+  }
+}
+
+.page-title {
+  @extend %display-type;
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
+}
+
+.service-card {
+  background-color: $color-white;
+  border: 0;
+  border-radius: $radius;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.2s ease;
+
+  &::after {
+    color: rgba($color-turquoise, 0.35);
+    content: attr(data-course);
+    font-family: $font-display;
+    font-size: 5.5rem;
+    font-style: italic;
+    line-height: 1;
+    position: absolute;
+    right: 1.25rem;
+    top: 1.25rem;
+  }
+
+  .card-body {
+    position: relative;
+    z-index: 1;
+  }
+
+  .service-card-label {
+    color: $color-accent;
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    color: $color-deep-teal;
+    font-family: $font-body;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+  }
+
+  p {
+    font-size: 1.08rem;
+    line-height: 1.55;
+  }
+
+  &:hover {
+    transform: translateY(-0.35rem);
+  }
+}
+
+.service-card-tech {
+  background-color: $color-deep-teal;
+  color: $color-cream;
+
+  h2 {
+    color: $color-cream;
+  }
+
+  .service-card-label {
+    color: $color-turquoise;
+  }
+
+  &::after {
+    color: rgba($color-turquoise, 0.55);
+  }
+}
+
+.service-card-tourism {
+  background-color: $color-turquoise;
+
+  .service-card-label {
+    color: $color-accent;
+  }
+
+  &::after {
+    color: rgba($color-white, 0.45);
+  }
+}
+
+.service-card-business {
+  background-color: $color-white;
+
+  &::after {
+    color: rgba($color-accent, 0.28);
+  }
+}
+
+.services-page {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 10rem);
+}
+
+.service-grid {
+  align-content: center;
+  flex-grow: 1;
+  padding-block: clamp(2rem, 7vw, 6rem) !important;
+
+  .service-card {
+    min-height: 23rem;
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.contact-form {
+  background-color: $color-white;
+  border-radius: $radius;
+  padding: clamp(1.5rem, 4vw, 3rem);
+
+  .form-control {
+    border-color: $color-turquoise;
+    border-radius: 0;
+
+    &:focus {
+      border-color: $color-deep-teal;
+      box-shadow: 0 0 0 0.2rem rgba($color-turquoise, 0.45);
+    }
+  }
+}
+
+.site-footer {
+  background-color: $color-deep-teal;
+  color: $color-cream;
+  font-size: 0.9rem;
+  padding-block: 1.5rem;
+
+  a {
+    color: $color-cream;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: $color-white;
+      text-decoration: underline;
+    }
+  }
+}
+
+.footer-content {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  justify-content: space-between;
+
+  address {
+    font-style: normal;
+    margin: 0;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .site-header .navbar-nav {
+    padding-top: 0.75rem;
+  }
+
+  .site-header .nav-link {
+    padding-inline: 0 !important;
+  }
+
+  .jumbotron {
+    padding-block: 4.5rem;
+
+    h1 br {
+      display: none;
+    }
+  }
+
+  .section-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .course-slide {
+    grid-template-columns: 1fr;
+    min-height: 27rem;
+    padding-bottom: 7rem;
+  }
+
+  .slide-number {
+    bottom: 3.5rem;
+    position: absolute;
+    right: 2rem;
+  }
+}
